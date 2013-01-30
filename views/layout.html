@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title><%= @title %></title>
+        <link rel='stylesheet' href='/css/bootstrap.css' />
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/">MyWeb</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li id="title-index"><a href="/">首页</a></li>
+                            <li id="title-login"><a href="/login">登入</a></li>
+                            <li id="title-reg"><a href="/reg">注册</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="container" class="container">
+            <div id="errmsg" class="alert alert-error"></div>
+            <script src="/js/common.js"></script>
+            <% content %>
+            <hr />
+            <footer>
+                <p><a href="http://www.byvoid.com/" target="_blank">BYVoid</a> 2012</p>
+            </footer>
+        </div>
+    </body>
+</html>
