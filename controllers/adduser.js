@@ -1,9 +1,10 @@
 var common = require('./base.js');
+var math = require('../models/math.js');
 
 exports.action = function(req, res){
     var User = require('../models/user.js');
     var name = req.body.name;
-    var pass = req.body.pass;
+    var pass = math.md5(req.body.pass);
     var msg  = "噢，失败了，过一会再试试吧";
     var newUser = new User({"name": name, "pass": pass});
     User.get(name, function(err, user){
@@ -16,6 +17,7 @@ exports.action = function(req, res){
                 if (err){
                     common.failure(res, '噢，失败了，过一会再试试吧');
                 } else {
+                    req.session.user = user;
                     common.success(res);
                 }
             });

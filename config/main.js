@@ -5,4 +5,4 @@ exports.routes = require('./router.js').routes;
 exports.static = path.join(__dirname, '../static');
 exports.views = path.join(__dirname, '../views');
 exports.logger = 'dev';
-exports.port = 8081;
+exports.port = 8080;

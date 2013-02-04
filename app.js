@@ -3,7 +3,7 @@ var config = require('./config/main.js');
 var http = require('http');
 var Mongo = require('connect-mongo')(express);
 var ect = require('ect');
-var ectRender = ect({root: config.views, watch: true});
+var ectRender = ect({root: config.views});
 
 var app = express();
 
@@ -12,9 +12,8 @@ app.configure(function(){
     app.disable('x-powered-by');
     app.use(express.favicon());
     app.use(express.logger(config.logger));
-    app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(app.router);
+    app.use(express.bodyParser());
     app.use(express.cookieParser());
     app.use(express.session({
         secret: config.mongo.cookieSecret,
@@ -22,6 +21,7 @@ app.configure(function(){
             db: config.mongo.db
         })
     }));
+    app.use(app.router);
     app.use(express.static(config.static));
 
     app.set('view engine', 'html');
